@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
 
+    long countBySessionId(Long sessionId);
     Optional<Event> findBySessionIdAndIdempotencyKey(Long sessionId, String idempotencyKey);
 
     // 상태 복원용: seq 범위 + 시각 필터
